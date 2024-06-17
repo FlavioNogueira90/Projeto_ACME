@@ -7,7 +7,7 @@ import br.com.projetoAcme.entities.enums.Setor;
 import br.com.projetoAcme.service.ReajusteSalarial;
 import br.com.projetoAcme.service.impl.ReajusteSalarialImpl;
 
-public class Application {
+public class SimuladorEmpresaACME {
     public static void main(String[] args) {
         Funcionario funcionario = new Funcionario();
         funcionario.setNome("João");
@@ -26,12 +26,12 @@ public class Application {
         ReajusteSalarial reajusteSalarial = new ReajusteSalarialImpl();
 
         // Reajustando salário de um funcionário
-        reajusteSalarial.reajustarSalario(funcionario, 10);
+        reajusteSalarial.aplicarReajuste(funcionario, 10);
         System.out.println("Novo salário de " + funcionario.getNome() + ": " + funcionario.getSalario());
 
         // Tentando reajustar salário de um funcionário terceirizado
         try {
-            reajusteSalarial.reajustarSalario(terceirizado, 10);
+            reajusteSalarial.aplicarReajuste(terceirizado, 10);
         } catch (UnsupportedOperationException e) {
             System.out.println("Erro: " + e.getMessage());
         }
